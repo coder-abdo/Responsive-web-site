@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Creative Inc
+        // favicon img
+        link(rel="shortcut icon", href="images/logo.png", type="image/x-icon")
+        // railway google font
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Raleway:300,400,700,900")
+        // main style sheet
+        link(rel="stylesheet", href="css/main.css")
+    body
+        // Header
+        header.header
+            img(src="images/logo.png", alt="Creative Inc" class="header__logo")
+            nav.header__nav.nav
+                ul.nav__list
+                    -var links = ['home', 'about', 'contact']
+                    -for(let i = 0;i < links.length;i++)
+                        li.nav__item
+                            a(href="#" class="nav__link")= links[i]
+        // Home Section
+        section.home.parallax--bg
+            h1.home__title making things looks great
+                span.muted for companies which make a great stuffs.
+            a(href="#" class="btn btn--accent") see our work
+        // About Section    
+        section.about
+            .about__text-box.parallax--box
+                h2.about__title Who we are
+                p.about__detail Sit by the fire drink water out of the faucet hide head under blanket so no one can see cat is love, cat is life. Knock dish off table eating always hungry so favor packaging over toy.
+                p.about__detail
+                    strong Rub face on owner.
+                    |Peer out window, chatter at birds, lure them to mouth. Chase ball of string eat a plant, kill a hand, i am the best have secret plans.
+            .about__img
+        // Portfolio Section
+        section.portfolio
+            h2.portfolio__title Some of our work
+            -for(let i = 1;i < 7;i++)
+                // figure 
+                figure.portfolio__figure
+                    img(src=`images/portfolio-0${i}.jpg`, alt="our work image")
+                    figcaption.portfolio__desc
+                        h3 project title
+                        a(href="#" class="btn btn--accent btn--small") project details
+        // Call To Action Section
+        section.cta
+            .cta__container
+                h2.cta__title Like what you see?
+                    span Then what are you waiting for?
+                a(href="#" class="btn btn--black") Hire Us
+        // Footer
+        footer.footer
+            -var list = ['Shoreditch', 'Shoreditch', 'Woke retro', 'Readymade', 'Scenester '];
+            p.footer__text Shoreditch bespoke leggings, tote bag williamsburg woke retro readymade scenester brunch art party farm-to-table pug. Wayfarers lyft prism, edison bulb distillery pok pok narwhal pinterest poke.
+            -for(let i = 1;i < 4;i++)
+                ul(class=`footer__links--${i}`)
+                    -for(let j = 0;j < list.length;j++)
+                        if j === 0
+                            li
+                                strong= list[j]
+                        else
+                            li= list[j] 
+                
+
+        script(src="./node_modules/jquery/dist/jquery.min.js")
+        script(src="./app/app.js")
